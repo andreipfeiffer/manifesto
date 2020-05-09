@@ -32,7 +32,7 @@ This document contains **Guidelines** and **Good Practices** applied by the AE M
 Don't overthink. Don't predict the future. Don't over-engineer.
 
 1. 🧬 **Avoid creating the wrong abstractions**  
-   Evaluate only the current needs when implementing a new feature. Create an abstraction only when you have more than one use-case. Allow the [Desire Lines](https://en.wikipedia.org/wiki/Desire_path) unravel themselves.
+   Evaluate only the current needs when implementing a new feature. Create an abstraction only when you have more than one use-case. Let the [Desire Lines](https://en.wikipedia.org/wiki/Desire_path) unravel themselves.
 
 2. 🎳 **Re-evaluate all use-cases when changing an existing feature**  
    When you need to extend existing features with additional functionality, don't focus only on your specific use-case. Consider all the use-cases and re-think the implementation if needed.
