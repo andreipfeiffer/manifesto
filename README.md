@@ -1,8 +1,11 @@
 # Software Development Manifesto
 
-This document contains **Guidelines** and **Good Practices** applied by the AE Mobile Team. Some of them are very general (applicable on any project), others are specific to our team structure and tech stack.
+This document contains **Guidelines** and **Good Practices** applied by the AE Mobile Team at [\[e-spres-oh\]](https://e-spres-oh.com/). Some of them are very general (applicable on any project), others are specific to our team structure and technology stack. Avoid the [Cargo Cult](https://en.wikipedia.org/wiki/Cargo_cult_programming) before applying them on your projects.
 
-❗️ **IMPORTANT**: this document includes _Guidelines_, not _Dogmas_. Motivated exceptions are always understandable. Any piece of content is subject to change.
+❗️ **IMPORTANT**:  
+- this document includes _Guidelines, not Dogmas_;
+- motivated exceptions are always understandable;
+- this is a living document, so any piece of content is subject to change.
 
 <br />
 
@@ -26,16 +29,19 @@ This document contains **Guidelines** and **Good Practices** applied by the AE M
 
 ## 🧐 Pragmatism
 
-Don't overthink. Don't implement for the future. Don't over engineer.
+Don't overthink. Don't predict the future. Don't over-engineer.
 
-1. **Avoid creating the wrong abstractions**  
-   Evaluate only the current needs when implementing a new feature. Create an abstraction only when you have more than one use-case.
+1. 🧬 **Avoid creating the wrong abstractions**  
+   Evaluate only the current needs when implementing a new feature. Create an abstraction only when you have more than one use-case. Allow the [Desire Lines](https://en.wikipedia.org/wiki/Desire_path) unravel themselves.
 
-2. **Re-evaluate all use-cases when changing an existing feature**  
+2. 🎳 **Re-evaluate all use-cases when changing an existing feature**  
    When you need to extend existing features with additional functionality, don't focus only on your specific use-case. Consider all the use-cases and re-think the implementation if needed.
 
-3. **Fix [broken windows](https://en.wikipedia.org/wiki/Broken_windows_theory), avoid [boiling frogs](https://en.wikipedia.org/wiki/Boiling_frog)**  
+3. 🐸 **Avoid [boiling frogs](https://en.wikipedia.org/wiki/Boiling_frog) and fix [broken windows](https://en.wikipedia.org/wiki/Broken_windows_theory)**  
    Always [refactor](#-refactoring) when something doesn't feel right. Don't let small problems become big problems.
+
+4. ⚖️ **Improve constantly, but know when to stop**  
+   Keep the right balance between [Kaizen](https://en.wikipedia.org/wiki/Kaizen) and [Wabi-sabi](https://en.wikipedia.org/wiki/Wabi-sabi).
 
 <br />
 
@@ -46,7 +52,7 @@ If adapting a new use-case would require bigger rewrites that are cumbersome, ad
 
 ## 💄 Code style
 
-Coding style is (and will always be) a strongly debatable subject, in contrast with it's usefulness. No matter what the style is, it should be 100% consistent across the entire team.
+Coding style is (and will always be) a strongly debatable subject, in contrast with its usefulness. No matter what the style is, it should be 100% consistent across the entire team.
 
 - **Use [Prettier](https://prettier.io/) for code formatting**  
   No more manual formatting, no more debates on _"how the code should look"_.
@@ -55,27 +61,27 @@ Coding style is (and will always be) a strongly debatable subject, in contrast w
   Unformatted code should never reach the remote repository. One way to prevent that is to format the code before you save. Having your editor/IDE do that for you is infallible.
 
 - **Make sure your editor/IDE is using the local `.prettier.rc` settings**  
-  It's important that we all use the same formatting rules. Saving an unmodified file should make no changes to it.
+  We all must use the same formatting rules. Saving an unmodified file should make no changes to it.
 
 <br />
 
 ## 🗃 Folder structure
 
-These guidelines are highly influenced by the technology choices.
+These guidelines are influenced by our technology choices.
 
 <br />
 
-**1. 📂 Each Screen should have its own folder**
+**1. 📂 Each Screen should have its folder**
 
 - Each `Screen` represents a `Route` in the application.
-- Each `Screen` has its own folder, that contains any SubComponents used by that Screen.
-- Screens are **flatten, not nested** and they should not reflect the routing. Routing is often not a tree, but a graph. Changing the routing should not require you to change the folder structure.
+- Each `Screen` has its separate folder, that contains any `SubComponents` used by that `Screen`.
+- Screens are **flattened, not nested** and they should not reflect the routing. Routing is often not a tree, but a graph. Changing the routing should not require you to change the folder structure.
 
   <br />
 
 **2. 🗂 Reusable components should be placed in `src/components` folder**
 
-A reusable component is any component that is used in _more than one Screen_. They are split in 2 categories:
+A reusable component is any component that is used in _more than one Screen_. They are split into 2 categories:
 
 - **Generic components**, that don't know anything about the business domain.  
   Examples: `Text`, `Button`, `Input`.
@@ -181,29 +187,29 @@ Some things to keep in mind:
 
 - **Avoid verbose Component `interface`**:
 
-  - use **`Props`** if the interface is **private**. There's no need to use a different name for each component. One file should contain only one component and `Props` communicates perfectly what it is.
-  - use **`ButtonProps`** if the interface is **exported**. You need to add a prefix in this case, because it will be imported in other components that have their own `Props` interface.
-  - avoid the hungarian notation, like `IProps` or `IButtonProps`, because the `Props` suffix already communitates what that is, no matter if you define it as an `interface` or a `type`.
+  - use **`Props`** if the interface is **private**. There's no need to use a different name for each component. One file should contain only one component and `Props` communicates perfectly its purpose.
+  - prepend the component name, like **`ButtonProps`**, if the interface is **exported**, because it will be imported in other components that have their own `Props` interface.
+  - avoid the [Hungarian notation](https://en.wikipedia.org/wiki/Hungarian_notation), like `IProps` or `IButtonProps`, because the `Props` suffix already communicates what that is, no matter if you define it as an `interface` or a `type`.
 
 - **Prefer function declarations** over expressions:  
-  Use`function increment() {}` instead of `const increment = () => {}`. This better comunicates that it's a `function` and has the benefit of being hoisted, so you can call it before you define it.
+  Use`function increment() {}` instead of `const increment = () => {}`. This better communicates that it's a `function` and has the benefit of being hoisted, so you can call it before you define it.
 
 - **Return component structure as soon as possible**:  
   The primary purpose of a component is its markup & structure. That should be visible as soon as possible when you open the file.
 
-- **Prefix partial rendering functions**:  
+- **Prefix `render` to partial rendering functions**:  
   Functions that return `JSX` should be prefixed with `render` to better communicate their purpose. They should also be placed **right below the return** statement, and before other functions that don't return `JSX`.
 
 - **Place closure functions at the end** of the component:  
   Functions that close over props or state are less important, so they should be placed at the end of the component.
 
 - **Place pure functions outside** the component:  
-  Functions that are pure, can easily be moved outside the component, making extraction and testing much easier.
+  Pure functions, can easily be moved outside the component, making extraction and testing much easier.
 
-- **Extract any magic values as constants**:  
-  Magic `numbers` and `strings` should be extracted as `named constants`. If they're used in other files as well, debate weather to `export` it, or to `move` it somewhere else.
+- **Extract any `magic values` as constants**:  
+  Magic `numbers` and `strings` should be extracted as `named constants`. If they're used in other files as well, debate whether to `export` it, or to `move` it somewhere else.
 
-- **Don't prefix functions with "\_"**:  
+- **Don't prefix functions with `_`**:  
   In function components, everything declared inside the component is **private**. Only **`exported`** expressions become **public**. Prefixing functions with `"_"` is useless.
 
 <br />
@@ -220,7 +226,7 @@ Some things to keep in mind:
 🙊 The Feedback you give could fall into 2 categories and should be treated accordingly:
 
 1. **Objective** feedback should always be accompanied by explanations;
-2. **Subjective** feedback should be highlighted (ie. _"Personally I would do this..."_, _"My opinion is that..."_, etc).
+2. **Subjective** feedback should be highlighted (ie. _"If I were you, I would do this..."_, _"My opinion is that..."_, etc).
 
 <br />
 
@@ -240,9 +246,9 @@ Some things to keep in mind:
 
 - **Be polite** when you receive feedback, especially when you asked for it.
 
-- **Don't be defensive** when you receive a feedback you don't like.
+- **Don't be defensive** when you receive feedback you don't like.
 
-- **Explain when you don't agree** with the feedback you receive. It's OK to disagree. It's NOT OK to become (passive) agressive.
+- **Explain when you don't agree** with the feedback you receive. It's OK to disagree. It's NOT OK to become (passive) aggressive.
 
 <br />
 
@@ -250,23 +256,23 @@ Some things to keep in mind:
 
 When you add a new Issue, you make it public for everyone on the team. That's why it should contain all the knowledge and the information that somebody else would require to understand what the problem is.
 
-- 🎯 **Short & to the point title**  
-  Treat Issues like functions or [commits](#-commits). Their title should clearly comunicate the problem in a concise way. You have plenty of space to add lengthy descriptions and explanations in the body.
+- 🎯 **Short and concise title**  
+  Treat Issues like functions or [commits](#-commits). Their title should clearly and concisely communicate the problem. You have plenty of space to add lengthy descriptions and explanations in the body.
 
 - 🐞 **Bugs should have a test case**  
   Before you create a bug issue, make sure that bug is reproducible in certain situations. When you report a bug, it's necessary to include all the details required for somebody else to be able to reproduce it:
 
-  - **iOS** specific, **Android** specific or **both**;
+  - **iOS**-specific, **Android**-specific or **both**;
   - **simulator** or **real device**;
   - **relevant application state**: guest or user, filled in profile or not, online or offline, search location, etc.
 
 - 🎨 **Format the description**  
-  Plain text is harder to read than formatted text. Use [markdown](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) to format your content accordingly. You don't receive praises for formatting the content, but you will annoy somebody if you don't.
+  Plain text is harder to read than formatted text. Use [markdown](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax) to format your content accordingly. You won't receive any praise for formatting the content, but you will annoy somebody if you didn't.
 
   - use **[bold](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#styling-text)** to highlight important content;
   - use **[lists](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#lists)** whenever you have to enumerate more than 1 item;
   - use **[quotes](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#quoting-text)** when you cite something;
-  - use **[inline or block code](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#quoting-code)** to format code related content;
+  - use **[inline or block code](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#quoting-code)** to format code-related content;
   - use **[links](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#links)** to refer to external sources;
   - use **[mentions](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams)** to ping other team members;
   - reference other **[issues](https://help.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#referencing-issues-and-pull-requests)**;
@@ -280,10 +286,10 @@ When you add a new Issue, you make it public for everyone on the team. That's wh
   All changes in a commit should be related to the message of the commit. Avoid adding unrelated changes. If you revert a commit, it should only undo what the commit message describes.
 
 - **Avoid merge commits on `develop`**  
-  Fetch/pull before making a commit. After commiting, push immediately to remote. Merge commits are totally ok on branches, because we're squashing them anyway.
+  Fetch/pull before making a commit. After committing, push immediately to remote. Merge commits are accepted on branches, because we're squashing them anyway.
 
 - **Avoid temporary commits on `develop`**  
-  If you feel like commiting, but the only message you can think of is _"Temp commit"_ or _"WIP some feature"_, just don't. Commit when you have a stable and clear implementation, or create a branch + Pull Request.
+  If you feel like committing, but the only message you can think of is _"Temp commit"_ or _"WIP some feature"_, just don't. Commit when you have a stable and clear implementation, or create a branch + Pull Request.
 
 <br />
 
@@ -302,7 +308,7 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
   Avoid explaining **`why`** or **`how`** in the commit subject. It should only describe **what** the commit is doing.
 
 - **Commit body can explain the `why`**  
-  Sometime it helps to highlight **why** we created the commit. This can be described in the commit body.
+  Sometimes it helps to highlight **why** we created the commit. This can be described in the commit body.
 
 - **Don't explain the `how` in the commit message**  
   You should never describe **how** you implemented a specific commit. You have the code diff for that.
@@ -327,7 +333,7 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
 👍 Comments could help in some situations:
 
 - **Explaining the "why"**  
-  Sometimes we have to implement **strange or weird code**, **intentionally bad code**, or take some **unorthodox approaches** that are not intuitive, nor self-explanatory. In such situations, comments help documenting why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
+  Sometimes we have to implement **strange or weird code**, **intentionally bad code**, or take some **unorthodox approaches** that are not intuitive, nor self-explanatory. In such situations, comments help to document why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
 
   If possible, add a [test](#-tests) to ensure it doesn't get unfixed by mistake.
 
@@ -341,13 +347,13 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
 Consider refactoring as a normal routine, like cleaning or maintenance:
 
 - ⏰ **Every day**  
-  Refactorings like **Renaming**, **Extracting**, **Inlining**, **Moving**, **Deleting** should be performed everytime you encounter a better aproach. They should be applied to `constants`, `variables`, `props`, `types`, `interfaces`, `functions`, `arguments`, `components`, `files`, `folders`, etc.
+  Refactorings like **Renaming**, **Extracting**, **Inlining**, **Moving**, **Deleting** should be performed every time you encounter a better approach. They should be applied to `constants`, `variables`, `props`, `types`, `interfaces`, `functions`, `arguments`, `components`, `files`, `folders`, etc.
 
 - 🗓 **Every sprint**  
   Whenever something _feels wrong_ or it becomes _difficult to explain_ to someone else, that's a code smell. Discuss it and plan the proper refactoring.
 
 - ✂️ **Remove unused code**  
-  You won't need it later. You might think you will, for **foreseeing** is not a proven skill.
+  You won't need it later. You might think you will, but **foreseeing** hasn't been proven yet as a human skill. Even [Wikipedia](https://en.wikipedia.org/wiki/Foresight_(psychology)) has little information about it.
 
 <br />
 
@@ -356,18 +362,18 @@ Consider refactoring as a normal routine, like cleaning or maintenance:
 Put all the necessary effort to make your tests stupidly simple, that anybody can understand without reading the source of the system under test.
 
 - **Don't test the tools**  
-  Be [pragmatic](#-pragmatism), test only your own code, not the tools, frameworks and libraries that you use.
+  Be [pragmatic](#-pragmatism), test only your own code, not the tools, frameworks, and libraries that you use.
 
 - **Make sure you cover all code branches**  
   Usually you'll need at least one test for each `if` statement, `ternary` or `logical` operators like `&&` or `||`. Additional tests might be required to cover some combinations.
 
 - **Use code coverage only as a double check**  
-  A high coverage doesn't actually mean anything. But a low coverage means that you don't have tests. Use coverage only to identify **what you've missed**. Don't use it as a metric for _how good your tests are_.
+  A high coverage doesn't really mean anything. A low coverage, on the other hand, means that you don't have enough tests. Use coverage only to identify **what you've missed**. Don't use it as a metric for _how good your tests are_.
 
 - **When testing collections, 2 items are enough**  
   Usually, if a collection implementation works with 2 items, it will work with more than 2 as well. If your logic doesn't specifically expect more than 2 items, there's no need to go above and beyond.
 
-- **Use dummy data when input is irelevant**  
+- **Use dummy data when input is irrelevant**  
   When you pass some input or stub something, and you don't care what that data is, use something as close to "nothing", such as: `0` for numbers, `""` for strings, `[]` for Arrays or `{}` for Objects.
 
 - **Avoid concrete input, if not used in asserts, or not relevant for the test**  
@@ -419,7 +425,7 @@ Put all the necessary effort to make your tests stupidly simple, that anybody ca
 We use `TypeScript` because of two primary reasons:
 
 1. **Communicates structure & contracts**  
-   Very useful for deeply nested data structures like `Arrays` and `Objects`, to have intellisense on what properties are available and what their type is. Also, useful to document `function arguments` and `return type` to know how to call a function/method and what to expect from it.
+   Very useful for deeply nested data structures like `Arrays` and `Objects`, to have IntelliSense on what properties are available and what their type is. Also, useful to document a `function arguments` and its `return type`, to know how to call a function/method and what to expect from it.
 
 2. **Verifies that contracts are respected**  
    Let the type checker verify that you don't have any compile errors. Very useful in [refactorings](#-refactoring) to not miss any potential errors.
@@ -429,7 +435,7 @@ We use `TypeScript` because of two primary reasons:
 🚦 Type everything as strictly as possible:
 
 - **Convert `Strings` to `Enums`**  
-  Strings are difficult to change, refactor and discover their accepted values. In isolated situations, where you don't need to re-use it in other files, you could also go for a `Union`. Otherwise, use `Enum`.
+  Strings are difficult to change, refactor, and discover their accepted values. In isolated situations, where you don't need to re-use it in other files, you could also go for a `Union`. Otherwise, use `Enum`.
 
   ```js
   // ❌ don't
@@ -453,7 +459,7 @@ We use `TypeScript` because of two primary reasons:
 <br />
 
 - **Define `types` for `Objects`**  
-  An arbitrary object structure doesn't communicate anything. You can't re-use it, you don't know what it represents. Putting the extra effort to define a `type` for your object, forces you to deeply thing about code design & structure. You might realise that you end up having multiple definitions for the same concept.
+  An arbitrary object structure doesn't communicate anything. You can't re-use it, you don't know what it represents. Putting the extra effort to define a `type` for your object, forces you to deeply think about code design & structure. You might realize that you end up having multiple definitions for the same concept.
 
   ```js
   // ❌ don't
@@ -490,13 +496,13 @@ We use `TypeScript` because of two primary reasons:
 <br />
 
 - **Avoid type casting**  
-   Forcing something to be something else is a _code smell_ and it should trigger the alarm that there might be better alternatives. However, at the boundaries of the application (http requests, 3rd party libraries, etc) where proper typing is not available, casting might be necessary.
+   Forcing something to be something else is a _code smell_ and it should trigger the alarm that there might be better alternatives. However, at the boundaries of the application like `HTTP requests` or `3rd party libraries`, where proper typing is not available, casting might be necessary.
 
   ```js
-  // ❌ no, this might be a lie & not type checked
+  // ❌ no, this might be a lie & not type-checked
   const style = {...} as ViewStyle
 
-  // ✅ yes, this will be type checked
+  // ✅ yes, this will be type-checked
   const style: ViewStyle = {...}
   ```
 
@@ -528,52 +534,53 @@ We use `TypeScript` because of two primary reasons:
 There is no designated Team Lead as a _role_. Leaders exist only as a _trait_. This enables the _team_ mindset and avoids _pulling ranks_.
 
 - **Responsibility lies on the team**  
-  We are a _self-organizing agile team_. If somebody fucks up, the team fucks up. You don't have a specific person to blame. It's every member's responsibility to make the necessary efforts that the team doesn't fuck up: **do, learn and help**.
+  We are a _self-organizing agile team_. If somebody fucks up, the team fucks up. You don't have a specific person to blame. It's every member's responsibility to make the necessary efforts that the team doesn't fuck up: **do, learn, and help**.
 
 - **Everybody has something to say**  
-  Without a hierarchy, we are all equal. Anybody can make mistakes, anybody can (and should) point out these mistakes. If there is something you believe that needs to change, bring it up and let's talk about it.
+  Without a hierarchy, we are all equal. Anybody can make mistakes, anybody can (and should) point out these mistakes. If there is something you believe that needs to change, bring it up, and let's talk about it.
 
 - **Decisions are driven by reason**  
-  Nobody can _impose_ anything. You can make proposal and support it. If you don't agree with a proposal, motivate it.
+  Nobody can _impose_ anything. Anybody can bring proposals to the table. When you don't agree with something, motivate it.
 
 <br />
 
 ## 🧠 Mindset
 
-Software development goes beyond frameworks, libraries, programming paradigms and technical challenges. The right mindset is a valuable trait, that will benefit you and your team mates at any stage of the project, and on any project.
+Software development goes beyond frameworks, libraries, programming paradigms, and technical challenges. The right mindset is a valuable trait, that will benefit you and your teammates at any stage of the project, and on any project.
 
-- **Be responsible**  
-  Taking responsibility for your actions and for your code doesn't mean that _"others will have someone to blame"_. It means that _"you don't have someone else to blame"_.
+- 🎓 **Be responsible**  
+  Taking responsibility for your actions and your code doesn't mean that _"others will have someone to blame"_. It means that _"you don't have someone else to blame"_.
 
-  Ignorance (you didn't know about that) can be understandable, but it's not an excuse. Consider this when:
+  Ignorance (as in _not knowing about something_) can be understandable, but it's not an excuse. Consider this when:
 
-  - you re-use or copy-paste someone else's code;
+  - you re-use or copy-paste someone else's code, that turns out to be _bad_;
   - you follow someone's suggestion and it turns out it's not a good idea;
   - you get feedback after your PR was approved;
   - you install a dependency that might be harmful, etc.
 
 <br />
 
-- **Be agile**  
-  Nothing is set in stone. Anything can change. _Resistence is futile_. Be comfortable with changing features, even late in the development process Don't get emotionally attached with your code. For this you need to:
+- 🤸‍♀️ **Be agile**  
+  Nothing is set in stone. Anything can change. _Resistance is futile_. Be comfortable with changing features, even late in the development process. Don't get emotionally attached to your code. For this you need to:
   - write your code **easy to change**;
   - make sure your code is **easy to remove**.
 
 <br />
 
-- **Understand your clients & users**  
-  Depeche Mode puts it perfectly in [Walking In My Shoes](https://www.youtube.com/watch?v=GrC_yuzO-Ss). Before you judge and trash a decision from your _Client/Manager/Boss_, or a feedback from your _Users_, try walking in their shoes. Understand their context and the reason for their decisions or feedback. If you think they're wrong, prove them wrong.
+- 🎩 **Understand your managers, clients & users**  
+  Depeche Mode puts it perfectly in [Walking In My Shoes](https://www.youtube.com/watch?v=GrC_yuzO-Ss). Before you judge and trash a decision from your _Client or Manager_, or feedback from your _Users_, try walking in their shoes. Understand their context and the reason for their decisions or feedback. If you think they're wrong, prove them wrong.
+  - **being a manager yourself** and having to talk directly to clients (pushing back, contradicting them, or negotiating features and deadlines) will help you enjoy the comfort of not having to wear their shoes;
   - **being a client yourself** and witnessing what it takes to communicate your needs to a development team, will help you better understand _the other side_;
   - **being a user** of the software you're building, will help you better understand its flaws.
 
 <br />
 
-- **Get involved**  
-  Replace **_"Let's do that"_** with **_"Let me do that"_**. When you want to propose something new: take the lead, be the driver, show the others how, why and what to do. Don't just launch ideas.
+- 🏋️ **Get involved**  
+  Replace **_"Let's do that"_** with **_"Let me do that"_**. When you want to propose something new: take the lead, be the driver, show the others how, why, and what to do. Don't just launch ideas.
 
 <br />
 
-- **Be reasonable**  
-  No one is perfect, and it's ok to not be perfect.
+- 🌞 **Be reasonable**  
+  No one is perfect, and that's perfectly fine.
   - **be reasonable with yourself**: you will make mistakes and those mistakes will and should be highlighted by your teammates;
-  - **be reasonable with others**: others will also make mistakes and you should highlight those mistakes in the most **friendly** way.
+  - **be reasonable with others**: they will also make mistakes and you should highlight those mistakes in the most **friendly** possible way.
