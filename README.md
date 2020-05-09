@@ -472,7 +472,7 @@ We use `TypeScript` because of two primary reasons:
 
     <br />
 
-- **Add `Generic types` for `Arrays`**  
+- **Specify items type for `Arrays`**  
   An array is usually a collection of a certain type. Specify what that type is.
 
   ```js
@@ -480,7 +480,9 @@ We use `TypeScript` because of two primary reasons:
   const usersList = []
 
   // ✅ do
-  const usersList = Array<User>()
+  const usersList: User[] = []
+  // or
+  const usersList: Array<User> = []
   ```
 
 <br />
