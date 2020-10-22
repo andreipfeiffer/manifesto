@@ -132,13 +132,13 @@ import Text from '../../components/Text';
 const HEIGHT = 56;
 
 // interface
-interface Props {
+type Props = {
   title: string;
   icon?: IconEnum;
 }
 
-// component
-const Component: React.FC<Props> = (props) => {
+// named export
+export function Component(props: Props) {
 
   // declarations
   const { title, icon } = props;
@@ -164,7 +164,7 @@ const Component: React.FC<Props> = (props) => {
 
   // local functions (closures)
   function callSomeAction() { // button handler }
-  function getSomeCalculatedValue() {}
+  function getSomeValue() {}
 
 // end component
 }
@@ -175,10 +175,7 @@ const styles = StyleSheet.create({
 })
 
 // local functions (pure)
-function getSomeCalculatedPureValue(count: number): string {}
-
-// export
-export default Component
+function getSomePureValue() {}
 ```
 
 <br />
@@ -189,7 +186,7 @@ Some things to keep in mind:
 
   - use **`Props`** if the interface is **private**. There's no need to use a different name for each component. One file should contain only one component and `Props` communicates perfectly its purpose.
   - prepend the component name, like **`ButtonProps`**, if the interface is **exported**, because it will be imported in other components that have their own `Props` interface.
-  - avoid the [Hungarian notation](https://en.wikipedia.org/wiki/Hungarian_notation), like `IProps` or `IButtonProps`, because the `Props` suffix already communicates what that is, no matter if you define it as an `interface` or a `type`.
+  - avoid the [Hungarian notation](https://en.wikipedia.org/wiki/Hungarian_notation), like `IProps` or `IButtonProps`.
 
 - **Prefer function declarations** over expressions:  
   Use`function increment() {}` instead of `const increment = () => {}`. This better communicates that it's a `function` and has the benefit of being hoisted, so you can call it before you define it.
