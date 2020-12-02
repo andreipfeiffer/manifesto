@@ -5,7 +5,7 @@ This document contains **Guidelines** and **Good Practices** applied by the AE M
 ❗️ **IMPORTANT**:  
 - this document includes _Guidelines, not Dogmas_;
 - motivated exceptions are always understandable;
-- this is a living document, so any piece of content is subject to change.
+- this is a living document, so any piece of content is subject to change for the better.
 
 <br />
 
