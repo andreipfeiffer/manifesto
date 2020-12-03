@@ -40,7 +40,7 @@ Don't overthink. Don't predict the future. Don't over-engineer.
 3. 🐸 **Avoid [boiling frogs](https://en.wikipedia.org/wiki/Boiling_frog) and fix [broken windows](https://en.wikipedia.org/wiki/Broken_windows_theory)**  
    Always [refactor](#-refactoring) when something doesn't feel right. Don't let small problems become big problems.
 
-4. ⚖️ **Improve constantly, but know when to stop**  
+4. ⚖️ **Improve constantly, but not indefinitely**  
    Keep the right balance between [Kaizen](https://en.wikipedia.org/wiki/Kaizen) and [Wabi-sabi](https://en.wikipedia.org/wiki/Wabi-sabi).
 
 <br />
