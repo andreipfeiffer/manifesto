@@ -421,11 +421,14 @@ Put all the necessary effort to make your tests stupidly simple, that anybody ca
 
 We use `TypeScript` because of two primary reasons:
 
-1. **Communicates structure & contracts**  
-   Very useful for deeply nested data structures like `Arrays` and `Objects`, to have IntelliSense on what properties are available and what their type is. Also, useful to document a `function arguments` and its `return type`, to know how to call a function/method and what to expect from it.
+1. **Communicates structure & design**  
+   Very useful for deeply nested data structures like `Arrays` and `Objects`, to have IntelliSense on what properties are available and what their type is. It also forces you to think more deeply about code design and domain modelling.
+   
+2. **Documents function contracts**  
+   You get out-of-the-box documentation on `function arguments` and their `return type`, easily finding out how to call a function/method and what to expect from it.
 
-2. **Verifies that contracts are respected**  
-   Let the type checker verify that you don't have any compile errors. Very useful in [refactorings](#-refactoring) to not miss any potential errors.
+3. **Verifies that contracts are respected**  
+   Let the type checker verify that you don't have any compile errors. Extremely useful in [refactorings](#-refactoring) to not miss any potential errors.
 
 <br />
 
@@ -463,8 +466,8 @@ We use `TypeScript` because of two primary reasons:
   const user = {...}
 
   // ✅ do
+  type User = {...}
   const user: User = {...}
-  type User = {}
   ```
 
     <br />
@@ -498,10 +501,10 @@ We use `TypeScript` because of two primary reasons:
    Forcing something to be something else is a _code smell_ and it should trigger the alarm that there might be better alternatives. However, at the boundaries of the application like `HTTP requests` or `3rd party libraries`, where proper typing is not available, casting might be necessary.
 
   ```js
-  // ❌ no, this might be a lie & not type-checked
+  // ❌ this might be a lie & not type-checked
   const style = {...} as ViewStyle
 
-  // ✅ yes, this will be type-checked
+  // ✅ this will be properly type-checked
   const style: ViewStyle = {...}
   ```
 
