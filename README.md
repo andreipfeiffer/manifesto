@@ -227,6 +227,10 @@ Some things to keep in mind:
 
 <br />
 
+> It's important __what__ you say, but equally important __how__ you say it.
+
+<br />
+
 📤 Guidelines for giving feedback:
 
 - **Be polite** when you give feedback, especially when it's not requested.
@@ -534,6 +538,8 @@ We use `TypeScript` because of two primary reasons:
 ## 🎖 Leadership
 
 There is no designated Team Lead as a _role_. Leaders exist only as a _trait_. This enables the _team_ mindset and avoids _pulling ranks_.
+
+> It's nice to be important, but it's more important to be nice.
 
 - **Responsibility lies on the team**  
   We are a _self-organizing agile team_. If somebody fucks up, the team fucks up. You don't have a specific person to blame. It's every member's responsibility to make the necessary efforts that the team doesn't fuck up: **do, learn, and help**.
