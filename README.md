@@ -537,7 +537,7 @@ We use `TypeScript` because of two primary reasons:
 
 ## 🎖 Leadership
 
-There is no designated Team Lead as a _role_. Leaders exist only as a _trait_. This enables the _team_ mindset and avoids _pulling ranks_.
+There is no designated Team, or Tech Lead as a _role_. Leaders exist only as a _trait_. This enables the _team_ mindset and avoids _pulling ranks_.
 
 > It's nice to be important, but it's more important to be nice.
 
