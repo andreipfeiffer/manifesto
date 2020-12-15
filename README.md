@@ -260,6 +260,9 @@ When you add a new Issue, you make it public for everyone on the team. That's wh
 - 🎯 **Short and concise title**  
   Treat Issues like functions or [commits](#-commits). Their title should clearly and concisely communicate the problem. You have plenty of space to add lengthy descriptions and explanations in the body.
 
+- 🏷 **Use labels for categorization**  
+  Labels are a great way to add predefined context to Issues, to keep the title concise.
+
 - 🐞 **Bugs should have a test case**  
   Before you create a bug issue, make sure that bug is reproducible in certain situations. When you report a bug, it's necessary to include all the details required for somebody else to be able to reproduce it:
 
