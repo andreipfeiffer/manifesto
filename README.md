@@ -60,7 +60,7 @@ Coding style is (and will always be) a strongly debatable subject, in contrast w
 - **Set your editor to Format on Save**  
   Unformatted code should never reach the remote repository. One way to prevent that is to format the code before you save. Having your editor/IDE do that for you is infallible.
 
-- **Make sure your editor/IDE is using the local `.prettier.rc` settings**  
+- **Make sure your editor/IDE is using the local `.prettierrc` settings**  
   We all must use the same formatting rules. Saving an unmodified file should make no changes to it.
 
 <br />
