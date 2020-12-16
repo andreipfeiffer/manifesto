@@ -233,7 +233,7 @@ Some things to keep in mind:
 
 📤 Guidelines for giving feedback:
 
-- **Be polite** when you give feedback, especially when it's not requested.
+- **Be polite** when you give feedback, especially when it's not requested. Choose your words carefully.
 
 - **Don't ask absurd things** during code reviews. Ask only for meaningful changes that you would do yourself.
 
@@ -241,15 +241,19 @@ Some things to keep in mind:
 
 - **Ask questions** when a piece of code looks weird. You might not understand the bigger picture.
 
+- **Give props** when you encounter any piece of code that tingle your heart, or mind.
+
 <br />
 
 📥 Guidelines for receiving feedback:
 
-- **Be polite** when you receive feedback, especially when you asked for it.
+- **Be polite** when you receive feedback, especially when you asked for it. Accept the feedback with an open mind and an open heart.
 
 - **Don't be defensive** when you receive feedback you don't like. Don't take it personally. You got feedback for the code that you wrote, not for the person that you are.
 
 - **Explain when you don't agree** with the feedback you receive. It's OK to disagree. It's NOT OK to be disagreeable.
+
+- **Show your appreciation** when your reviewer finds a bug, or a problem with the code you wrote.
 
 <br />
 
