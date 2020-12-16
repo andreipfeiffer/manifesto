@@ -430,7 +430,7 @@ Put all the necessary effort to make your tests stupidly simple, that anybody ca
 
 ## 🧩 Types
 
-We use `TypeScript` because of two primary reasons:
+We use `TypeScript` because of the following main reasons:
 
 1. **Communicates structure & design**  
    Very useful for deeply nested data structures like `Arrays` and `Objects`, to have IntelliSense on what properties are available and what their type is. It also forces you to think more deeply about code design and domain modelling.
@@ -438,7 +438,7 @@ We use `TypeScript` because of two primary reasons:
 2. **Documents function contracts**  
    You get out-of-the-box documentation on `function arguments` and their `return type`, easily finding out how to call a function/method and what to expect from it.
 
-3. **Verifies that contracts are respected**  
+3. **Enforces contracts**  
    Let the type checker verify that you don't have any compile errors. Extremely useful in [refactorings](#-refactoring) to not miss any potential errors.
 
 <br />
