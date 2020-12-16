@@ -319,7 +319,7 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
   Sometimes it helps to highlight **why** we created the commit. This can be described in the commit body.
 
 - **Don't explain the `how` in the commit message**  
-  You should never describe **how** you implemented a specific commit. You have the code diff for that.
+  There's no need to describe **how** you've implemented a specific commit. You have the code diff for that.
 
 <br />
 
