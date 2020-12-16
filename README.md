@@ -247,9 +247,9 @@ Some things to keep in mind:
 
 - **Be polite** when you receive feedback, especially when you asked for it.
 
-- **Don't be defensive** when you receive feedback you don't like.
+- **Don't be defensive** when you receive feedback you don't like. Don't take it personally. You got feedback for the code that you wrote, not for the person that you are.
 
-- **Explain when you don't agree** with the feedback you receive. It's OK to disagree. It's NOT OK to become (passive) aggressive.
+- **Explain when you don't agree** with the feedback you receive. It's OK to disagree. It's NOT OK to be disagreeable.
 
 <br />
 
