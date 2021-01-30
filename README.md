@@ -341,12 +341,12 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
 👍 Comments could help in some situations:
 
 - **Explaining the "why"**  
-  Sometimes we have to implement **strange or weird code**, **intentionally bad code**, or take some **unorthodox approaches** that are not intuitive, nor self-explanatory. In such situations, comments help to document why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
+  Sometimes we have to implement **intentionally bad code**, or take some **unorthodox approaches** that are not intuitive, nor self-explanatory. In such situations, comments help to document why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
 
   If possible, add a [test](#-tests) to ensure it doesn't get unfixed by mistake.
 
-- **Regular expressions**  
-  Regexes are inherently obscure and difficult to understand. Breaking them down and describing what they do using comments, might help when you need to touch that part of code.
+- **Describing complex code**  
+  Not all code can be clean, simple and intuitive. At times, we might write **strange or weird code**, especially when we have to deal with complex requirements. For instance, Regexes are inherently obscure and difficult to understand. In these situations, using comments to describe what does the code do, would help you (or somebody else) when reading it.
 
 <br />
 
