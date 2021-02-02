@@ -52,10 +52,10 @@ If adapting a new use-case would require bigger rewrites that are cumbersome, ad
 
 ## 💄 Code style
 
-Coding style is (and will always be) a strongly debatable subject, in contrast with its usefulness. No matter what the style is, it should be 100% consistent across the entire team.
+Coding style is (and will probably always be) a strongly debatable subject, in contrast with its uselessness. No matter what the style is, it should be 100% consistent across the entire team.
 
 - **Use [Prettier](https://prettier.io/) for code formatting**  
-  No more manual formatting, no more debates on _"how the code should look"_.
+  No more manual formatting, no more debates on _"how the code should look"_. Delegate this task to the tooling.
 
 - **Set your editor to Format on Save**  
   Unformatted code should never reach the remote repository. One way to prevent that is to format the code before you save. Having your editor/IDE do that for you is infallible.
@@ -303,7 +303,7 @@ When you add a new Issue, you make it public for everyone on the team. That's wh
 
 📜 **Commit messages**
 
-Commit subject should be **short** and **to the point**. Don't explain what the problem was; explain what the commit is doing.
+Commit subject should be **short** and **clear**. Don't explain what the problem was; explain what the commit is doing.
 
 - **Use the imperative mood in the message**  
   Commit subjects should complete the sentence:
@@ -341,12 +341,12 @@ Commit subject should be **short** and **to the point**. Don't explain what the 
 👍 Comments could help in some situations:
 
 - **Explaining the "why"**  
-  Sometimes we have to implement **intentionally bad code**, or take some **unorthodox approaches** that are not intuitive, nor self-explanatory. In such situations, comments help to document why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
+  Sometimes we have to implement **intentionally bad code**, or take some **unorthodox approaches**. In such situations, comments help to document why such decisions were taken. Think of it like a written [Mea culpa](https://en.wikipedia.org/wiki/Mea_culpa).
 
   If possible, add a [test](#-tests) to ensure it doesn't get unfixed by mistake.
 
 - **Describing complex code**  
-  Not all code can be clean, simple and intuitive. At times, we might write **strange or weird code**, especially when we have to deal with complex requirements. For instance, Regexes are inherently obscure and difficult to understand. In these situations, using comments to describe what does the code do, would help you (or somebody else) when reading it.
+  Not all code can be clean, simple and intuitive. At times, we might write **strange or weird code** that is not intuitive, nor self-explanatory, especially when we have to deal with complex requirements. For instance, Regexes are inherently obscure and difficult to understand. In these situations, using comments to describe what does the code do, would help you (or somebody else) when reading it.
 
 <br />
 
@@ -362,6 +362,9 @@ Consider refactoring as a normal routine, like cleaning or maintenance:
 
 - ✂️ **Remove unused code**  
   You won't need it later. You might think you will, but **foreseeing** hasn't been proven yet as a human skill. Even [Wikipedia](https://en.wikipedia.org/wiki/Foresight_(psychology)) has little information about it.
+  
+- 👃 **Code smells**  
+  Spotting refactoring opportunities gets easier and easier once we learn to identify the various [code smells](https://blog.codinghorror.com/code-smells/) which signal that our code starts to [rot](https://en.wikipedia.org/wiki/Software_rot).
 
 <br />
 
