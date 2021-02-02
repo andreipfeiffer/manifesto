@@ -511,7 +511,7 @@ We use `TypeScript` because of the following main reasons:
 
 <br />
 
-- **Avoid type casting**  
+- **Avoid type assertions**  
    Forcing something to be something else is a _code smell_ and it should trigger the alarm that there might be better alternatives. However, at the boundaries of the application like `HTTP requests` or `3rd party libraries`, where proper typing is not available, casting might be necessary.
 
   ```js
@@ -541,6 +541,25 @@ We use `TypeScript` because of the following main reasons:
 
   // ✅ do
   const [item, setItem] = useState<Enum>(Enum.FIRST);
+  ```
+
+<br />
+
+- **Avoid `any` type completely**  
+   Using `any` might seem like an _easy escape hatch_, but it completely **removes the type-checking and type-safety** which is the main reason we use TypeScript in the first place. Use the [`unknown` type](https://mariusschulz.com/blog/the-unknown-type-in-typescript) instead, along with proper type narrowing.
+
+  ```ts
+  // ❌ don't
+  const data: any = fetch("/api");
+  // this is not type-checked
+  data.map(item => item.id);
+
+  // ✅ do
+  const data: unknown = fetch("/api");
+  // we need to narrow down the type
+  if (Array.isArray(data)) {
+    data.map((item: MyItem) => item.id);
+  }
   ```
 
 <br />
