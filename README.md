@@ -443,6 +443,9 @@ We use `TypeScript` because of the following main reasons:
 
 3. **Enforces contracts**  
    Let the type checker verify that you don't have any compile errors. Extremely useful in [refactorings](#-refactoring) to not miss any potential errors.
+   
+4. **Pit of Success**
+   It doesn't let us fall into the _Pit of Despair_, like JavaScript or other dynamic languages do. Instead, it guides us and helps us to fall into the [Pit of Success](https://blog.codinghorror.com/falling-into-the-pit-of-success/).
 
 <br />
 
